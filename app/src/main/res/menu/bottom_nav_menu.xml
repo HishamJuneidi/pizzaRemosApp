@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_about"
+        android:enabled="true"
+        android:icon="@drawable/ic_info_outline_black_24dp"
+        android:title="About"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_gallery"
+        android:enabled="true"
+        android:icon="@drawable/ic_photo_album_black_24dp"
+        android:title="Gallery"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_location"
+        android:enabled="true"
+        android:icon="@drawable/ic_location_on_beige_24dp"
+        android:title="Location"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_menu"
+        android:enabled="true"
+        android:icon="@drawable/ic_book_black_24dp"
+        android:title="Menu"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_order"
+        android:enabled="true"
+        android:icon="@drawable/ic_local_dining_beige_24dp"
+        android:title="Order"
+        app:showAsAction="ifRoom" />
+</menu>
