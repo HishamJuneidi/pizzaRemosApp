@@ -2,10 +2,12 @@ package com.example.remospizzaapp
 
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.MediaController
 import android.widget.TextView
 import android.widget.VideoView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -66,8 +68,30 @@ class AboutFragment : Fragment() {
         val videoToView:VideoView = view.findViewById(R.id.videoView)
         val url = Uri.parse("https://www.remospizza.com/assets/bella-firenze/video/remo_60hd.mp4")
 
+        var TAG = "VideoPlayer"
         videoToView.setVideoURI(url)
+        videoToView.isSoundEffectsEnabled = false
+        val mediaController = MediaController(view.context)
+        mediaController?.setAnchorView(videoToView)
+        videoToView.setMediaController(mediaController)
+
+        videoToView.setOnPreparedListener { mp ->
+            mp.isLooping = true
+            Log.i(TAG, "Duration = " + videoToView.duration)
+        }
         videoToView.start()
+
+        videoToView.setOnClickListener{
+            if(videoToView.isPlaying){
+                videoToView.pause()
+                videoToView.isSoundEffectsEnabled = false
+
+            }else {
+                videoToView.start()
+                videoToView.isSoundEffectsEnabled = true
+            }
+        }
+
 
 
         return view
