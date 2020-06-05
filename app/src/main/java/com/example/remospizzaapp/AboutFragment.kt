@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.MediaController
 import android.widget.TextView
 import android.widget.VideoView
@@ -71,24 +72,26 @@ class AboutFragment : Fragment() {
         var TAG = "VideoPlayer"
         videoToView.setVideoURI(url)
         videoToView.isSoundEffectsEnabled = false
-        val mediaController = MediaController(view.context)
-        mediaController?.setAnchorView(videoToView)
-        videoToView.setMediaController(mediaController)
+//        val mediaController = MediaController(view.context)
+//        mediaController?.setAnchorView(videoToView)
+//        videoToView.setMediaController(mediaController)
 
-        videoToView.setOnPreparedListener { mp ->
-            mp.isLooping = true
-            Log.i(TAG, "Duration = " + videoToView.duration)
-        }
+//        videoToView.setOnPreparedListener { mp ->
+//            mp.isLooping = true
+//            Log.i(TAG, "Duration = " + videoToView.duration)
+//        }
         videoToView.start()
-
+        val pause:ImageView = view.findViewById(R.id.pause)
+        pause.visibility = View.INVISIBLE
         videoToView.setOnClickListener{
             if(videoToView.isPlaying){
                 videoToView.pause()
                 videoToView.isSoundEffectsEnabled = false
-
+                pause.visibility = View.VISIBLE
             }else {
                 videoToView.start()
                 videoToView.isSoundEffectsEnabled = true
+                pause.visibility = View.INVISIBLE
             }
         }
 
