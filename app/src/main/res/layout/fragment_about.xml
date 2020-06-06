@@ -11,20 +11,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/aboutus"
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="aboutus"
-            android:scaleType="center"
-
-            app:layout_constraintBottom_toTopOf="@+id/textView"
+            android:layout_marginStart="147dp"
+            android:layout_marginLeft="147dp"
+            android:layout_marginEnd="147dp"
+            android:layout_marginRight="147dp"
+            android:fontFamily="@font/engagement"
+            android:gravity="center"
+            android:text="About us"
+            android:textColor="#000000"
+            android:textSize="60sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/aboutus" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView"
@@ -37,7 +39,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.47"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/aboutus" />
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <ImageView
             android:id="@+id/divider"
