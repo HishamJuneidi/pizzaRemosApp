@@ -9,6 +9,8 @@ import android.view.ViewGroup
 
 import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.maps.MapView
+import com.mapbox.mapboxsdk.maps.MapboxMap
+import com.mapbox.mapboxsdk.maps.OnMapReadyCallback
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -21,7 +23,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [LocationFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class LocationFragment : Fragment() {
+class LocationFragment : Fragment(), OnMapReadyCallback{
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -43,11 +45,46 @@ class LocationFragment : Fragment() {
         Mapbox.getInstance(this.requireContext(), getString(R.string.access_token))
         var view = inflater.inflate(R.layout.fragment_location, container, false)
         mapView = view.findViewById(R.id.mapView)
-//
+        println("test1")
         mapView.onCreate(savedInstanceState)
         return view
     }
 
+
+    override fun onStart() {
+        super.onStart()
+        mapView.onStart()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mapView.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mapView.onPause()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mapView.onStop()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        mapView.onSaveInstanceState(outState)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mapView.onDestroy()
+    }
+
+    override fun onLowMemory() {
+        super.onLowMemory()
+        mapView.onLowMemory()
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -66,5 +103,8 @@ class LocationFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onMapReady(mapboxMap: MapboxMap) {
     }
 }
