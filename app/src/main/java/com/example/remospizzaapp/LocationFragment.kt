@@ -1,16 +1,19 @@
 package com.example.remospizzaapp
 
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.mapbox.mapboxsdk.Mapbox
+
 
 //import com.mapbox.mapboxsdk.Mapbox
 //import com.mapbox.mapboxsdk.maps.MapView
@@ -57,6 +60,12 @@ class LocationFragment : Fragment() {
 
         //onMapReady(mapbox)
 
+        var phoneCall = view.findViewById<TextView>(R.id.textViewPhonNumber)
+        phoneCall.setOnClickListener{
+
+            val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$2039730077"))
+            startActivity(intent)
+        }
         return view
     }
 
