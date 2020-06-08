@@ -1,14 +1,19 @@
 package com.example.remospizzaapp
 
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-
+import androidx.fragment.app.Fragment
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.MapView
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.mapbox.mapboxsdk.Mapbox
-import com.mapbox.mapboxsdk.maps.MapView
+
+//import com.mapbox.mapboxsdk.Mapbox
+//import com.mapbox.mapboxsdk.maps.MapView
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -40,14 +45,62 @@ class LocationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        Mapbox.getInstance(this.requireContext(), getString(R.string.access_token))
+        //Mapbox.getInstance(this.requireContext(), getString(R.string.access_token))
         var view = inflater.inflate(R.layout.fragment_location, container, false)
-        mapView = view.findViewById(R.id.mapView)
-//
-        mapView.onCreate(savedInstanceState)
+        //mapView = view.findViewById(R.id.mapView)
+
+        //mapView.onCreate(savedInstanceState)
+
+//        mapboxMap?.addMarker(MarkerOptions()
+//            .position(LatLng(48.85819, 2.29458))
+//            .title("Eiffel Tower"))
+
+        //onMapReady(mapbox)
+
         return view
     }
 
+    fun onMapReady(map: GoogleMap) {
+        map.addMarker(
+            MarkerOptions()
+                .position(LatLng(41.140484, -73.520648))
+                .title("Hello world")
+        )
+    }
+//    override fun onStart() {
+//        super.onStart()
+//        mapView.onStart()
+//    }
+//
+//    override fun onResume() {
+//        super.onResume()
+//        mapView.onResume()
+//    }
+//
+//    override fun onPause() {
+//        super.onPause()
+//        mapView.onPause()
+//    }
+//
+//    override fun onStop() {
+//        super.onStop()
+//        mapView.onStop()
+//    }
+//
+//    override fun onSaveInstanceState(outState: Bundle) {
+//        super.onSaveInstanceState(outState)
+//        mapView.onSaveInstanceState(outState)
+//    }
+//
+//    override fun onDestroy() {
+//        super.onDestroy()
+//        mapView.onDestroy()
+//    }
+//
+//    override fun onLowMemory() {
+//        super.onLowMemory()
+//        mapView.onLowMemory()
+//    }
     companion object {
         /**
          * Use this factory method to create a new instance of
